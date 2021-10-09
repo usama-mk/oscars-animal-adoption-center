@@ -1,5 +1,7 @@
 import React from 'react'
 import './History.css'
+import Table from '../Table/Table'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function History() {
     return (
@@ -36,6 +38,10 @@ function History() {
                     Back Pasture
                 </div>
             </div>
+
+
+            <Table/>
+            {/* History end */}
         </div>
     )
 }
