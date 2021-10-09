@@ -126,16 +126,29 @@
 
 .DPIWrapper{
     display: flex;
+    width: 100%;
 }
 
 .imageWrapper{
-    display: flex;
-    flex-direction: column;
-    
+      
 }
 
+
 .animalImage{
-    width: 200px;
-    height: 300px;
+    width: 350px;
+    height: 450px;
     object-fit: cover;
+    margin-left: 10%;  
+    margin-top: 5px;
+}
+
+.border{
+}
+
+.borderBackground{
+    border: 1px solid black;
+    min-height: 20px;
+    min-width: 20px;
+    width: 122%;
+    background-color: gray;
 }

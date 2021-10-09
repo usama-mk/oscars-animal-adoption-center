@@ -123,8 +123,9 @@ function DonkeyPostInfo() {
     
     <div className="imageWrapper">
         <img className='animalImage' src={home}  alt="" />
-        <div className="check">
-       <div className="customCheck checkTrue"></div>
+        
+        <div className="border">
+       <div className="borderBackground"></div>
        </div>
 
     </div>
