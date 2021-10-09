@@ -3,7 +3,8 @@ import "./DonkeyPostInfo.css";
 
 function DonkeyPostInfo() {
   return (
-    <div className="DonkeyPostInfo">
+   <div className="DPIWrapper">
+        <div className="DonkeyPostInfo">
       <div className="nameWrapper">
         <div className="infoName">Name:</div>
         <h3 className="name">Bertha- Adopted</h3>
@@ -99,14 +100,31 @@ function DonkeyPostInfo() {
               </div>
             </div>
           </div>
-
-          
+ 
       </div>
 
+{/* Intake Notes */}
+
+<div className="notes">
+<div className="intakeNotes">
+    Intake Notes
+    </div>
+
+    <div className="notesText">
+        About 8 months pregnant
+    </div>
+</div>
 
 
       {/* Beneath ends Animal info */}
     </div>
+
+    
+    <div className="imageWrapper">
+        image
+    </div>
+    {/* Ends wrapper */}
+   </div>
   );
 }
 

@@ -108,3 +108,22 @@
 .monthLabel{
     padding: 5px 20px;
 }
+
+.notes{
+    /* padding: 5px; */
+}
+.intakeNotes{
+    
+    background-color: lightgray;
+    padding-bottom: 10px;
+}
+
+.notesText{
+    padding-left: 5px;
+    min-height: 90px;
+    padding-top: 5px;
+}
+
+.DPIWrapper{
+    display: flex;
+}
