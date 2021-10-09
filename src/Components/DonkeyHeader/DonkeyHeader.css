@@ -1,0 +1,9 @@
+.DonkeyHeader{
+    background-color: lightgray;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dHeaderDate{
+    margin-right: 10%;
+}

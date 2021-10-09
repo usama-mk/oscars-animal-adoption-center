@@ -1,0 +1,110 @@
+.DonkeyPostInfo{
+    border: 1px solid black;
+    width: 60%;
+}
+
+.nameWrapper{
+    display: flex;
+    border: 1px solid black;
+}
+
+.infoName{
+    border: 1px solid black;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.name{
+    margin-left: 5px;
+}
+
+.specie{
+    margin-left: 5px;
+    padding-right: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.separator{
+    display: flex;
+    align-items: center;
+}
+
+.customCheck{
+    border: 1px solid black;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+.checkTrue{
+    background-color: grey;
+   
+}
+.dChecks{
+    display: flex;
+}
+
+.check{
+    display: flex;
+    margin: 10px;
+}
+
+.checkLabel{
+    margin: 0px 5px;
+}
+
+.dColors{
+    display: flex;
+    margin-left: 9%;
+}
+
+.dColorsLabel{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.dColorNames{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.dDesc{
+    border: 1px solid black;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.dDescText{
+    padding-top: 10px;
+}
+
+.birthInfo{
+    border: 1px solid black;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    /* padding-bottom: 50px; */
+}
+.birthTable{
+    display: flex;
+}
+
+.month{
+    border: 1px solid black;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.monthLabel{
+    padding: 5px 20px;
+}
