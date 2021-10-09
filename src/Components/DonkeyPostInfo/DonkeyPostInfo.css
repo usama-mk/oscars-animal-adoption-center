@@ -127,3 +127,15 @@
 .DPIWrapper{
     display: flex;
 }
+
+.imageWrapper{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.animalImage{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}

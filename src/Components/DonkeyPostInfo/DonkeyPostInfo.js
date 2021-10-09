@@ -1,5 +1,6 @@
 import React from "react";
 import "./DonkeyPostInfo.css";
+import home from '../../assets/home.jpg'
 
 function DonkeyPostInfo() {
   return (
@@ -121,7 +122,11 @@ function DonkeyPostInfo() {
 
     
     <div className="imageWrapper">
-        image
+        <img className='animalImage' src={home}  alt="" />
+        <div className="check">
+       <div className="customCheck checkTrue"></div>
+       </div>
+
     </div>
     {/* Ends wrapper */}
    </div>
