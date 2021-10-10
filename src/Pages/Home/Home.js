@@ -1,12 +1,11 @@
 import React from 'react'
-import DonkeyCard from '../../Components/DonkeyCard/DonkeyCard'
-import History from '../../Components/History/History'
+import DonkeyDetailed from '../../Components/DonkeyDetailed/DonkeyDetailed'
 import './Home.css'
 function Home() {
     return (
         <div className="Home" >
-            <DonkeyCard/>
-            <History/>
+            
+          <DonkeyDetailed/>
         </div>
     )
 }

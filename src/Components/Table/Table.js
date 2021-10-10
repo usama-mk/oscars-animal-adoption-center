@@ -4,6 +4,11 @@ import * as ReactBootStrap from "react-bootstrap";
 
 function Table() {
   const [posts, setPosts] = useState(["one", "two", "three"]);
+  const [date, setDate] = useState("12/1/2020");
+  const [examDetails, setExamDetails] = useState("rhino/flu");
+  const [nextSteps, setNextSteps] = useState("Cattrina Lucas");
+  const [admin, setAdmin] = useState(true);
+  const [editor, setEditor] = useState(true);
 
   return (
     <div className="Table">
@@ -11,25 +16,115 @@ function Table() {
         <thead>
           <tr>
             <th className="center">Date</th>
-            <th className="center" >Vaccination/Exam Details</th>
+            <th className="center">Vaccination/Exam Details</th>
             <th className="center">Notes/Next Steps</th>
           </tr>
         </thead>
         <tbody>
           <tr className="center">
-            <td>12/1/2020</td>
-            <td>rhino/flu</td>
-            <td>Cattrina Lucas</td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              ) : (
+                date
+              )}
+            </td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={examDetails}
+                  onChange={(e) => setExamDetails(e.target.value)}
+                />
+              ) : (
+                examDetails
+              )}
+            </td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={nextSteps}
+                  onChange={(e) => setNextSteps(e.target.value)}
+                />
+              ) : (
+                nextSteps
+              )}
+            </td>
           </tr>
           <tr className="center">
-          <td>12/1/2020</td>
-            <td>rhino/flu</td>
-            <td>Cattrina Lucas</td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              ) : (
+                date
+              )}
+            </td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={examDetails}
+                  onChange={(e) => setExamDetails(e.target.value)}
+                />
+              ) : (
+                examDetails
+              )}
+            </td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={nextSteps}
+                  onChange={(e) => setNextSteps(e.target.value)}
+                />
+              ) : (
+                nextSteps
+              )}
+            </td>
           </tr>
           <tr className="center">
-          <td>12/1/2020</td>
-            <td>rhino/flu</td>
-            <td>Cattrina Lucas</td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              ) : (
+                date
+              )}
+            </td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={examDetails}
+                  onChange={(e) => setExamDetails(e.target.value)}
+                />
+              ) : (
+                examDetails
+              )}
+            </td>
+            <td>
+              {admin || editor ? (
+                <input
+                  type="text"
+                  value={nextSteps}
+                  onChange={(e) => setNextSteps(e.target.value)}
+                />
+              ) : (
+                nextSteps
+              )}
+            </td>
           </tr>
         </tbody>
       </ReactBootStrap.Table>
