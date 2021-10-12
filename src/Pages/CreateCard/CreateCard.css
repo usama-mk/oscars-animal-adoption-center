@@ -1,0 +1,13 @@
+.CreateCard{
+    
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+
+.CreateCard>form{
+    width: 70%;
+    margin-top: 50px;
+}
