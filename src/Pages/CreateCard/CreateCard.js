@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./CreateCard.css";
 import { MDBInput } from "mdbreact";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addAnimal, setAnimals } from "../../actions";
+import { Link } from "react-router-dom";
 
 function CreateCard() {
   // const[name, setName]= useState('')
@@ -18,16 +22,17 @@ function CreateCard() {
   const [status, setStatus] = useState("");
   const [before, setBefore] = useState("");
 
-var posts=[]
+  const posts= useSelector(state=> state.animals)
+  const dispatch= useDispatch()
 
   const handleCreateCard = (e) => {
      
     e.preventDefault();
 
-    posts.push({
+    dispatch(addAnimal({
         name: name,
         breed: breed
-    })
+    }))
 
     console.log(posts)
     
@@ -38,6 +43,9 @@ var posts=[]
   };
   return (
     <div className="CreateCard flex-center">
+        <Link to='./'>
+        back
+        </Link>
       <form onSubmit={handleCreateCard}>
         <input
           value={name}
