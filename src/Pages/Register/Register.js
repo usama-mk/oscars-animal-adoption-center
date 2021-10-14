@@ -8,9 +8,11 @@ import { Redirect, useHistory } from "react-router";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@firebase/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from '../../actions'
+import { useSelector } from "react-redux";
 
 
-function Register({ user, setUser }) {
+function Register({  }) {
+  const user= useSelector(state=> state.user.user)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -29,7 +31,7 @@ function Register({ user, setUser }) {
   const handleLogout = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
-      dispatch(setUser(null))
+      dispatch(setUser('null'))
     }).catch((error) => {
       // An error happened.
     });
@@ -43,10 +45,11 @@ function Register({ user, setUser }) {
       .then((user) => {
         console.log(user);
         // await getUserDocument(user.uid);
-        setUser(user);
         if (user) {
           console.log("success login");
-          history.push("./home");
+        dispatch(setUser(user));
+
+          history.push("/home");
         }
       })
       .catch((error) => {
