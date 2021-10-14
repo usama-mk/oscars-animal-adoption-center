@@ -3,6 +3,7 @@ import Home from './Pages/Home/Home';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateCard from './Pages/CreateCard/CreateCard';
 import {Switch} from 'react-router'
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           </Route>
           <Route path="/registration">
             {/* register */}
+            <Register/>
           </Route>
           <Route path="/">
             <Home />

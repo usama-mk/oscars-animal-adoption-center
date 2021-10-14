@@ -1,15 +1,17 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import DonkeyCardFooter from '../DonkeyCardFooter/DonkeyCardFooter'
 import DonkeyHeader from '../DonkeyHeader/DonkeyHeader'
 import DonkeyPostInfo from '../DonkeyPostInfo/DonkeyPostInfo'
 import './DonkeyCard.css'
 
-function DonkeyCard() {
+function DonkeyCard({name, breed, specie, type, description, month, year, color, age, notes, status, before, image}) {
+    
     return (
         <div className="DonkeyCard">
-            <DonkeyHeader/>
-            <DonkeyPostInfo/>
-            <DonkeyCardFooter/>
+            <DonkeyHeader />
+            <DonkeyPostInfo name={name} specie= { specie} breed={ breed} type={ type} description={ description} month={ month} year={ year} color={ color} age={ age} notes={ notes} image={image} />
+            <DonkeyCardFooter status={ status} before={ before}   />
         </div>
     )
 }

@@ -2,40 +2,41 @@ import React from "react";
 import "./DonkeyPostInfo.css";
 import home from '../../assets/home.jpg'
 
-function DonkeyPostInfo() {
+function DonkeyPostInfo({name, breed, specie, type, description, month, year, color, age, notes, image}) {
+ console.log(type)
   return (
    <div className="DPIWrapper">
         <div className="DonkeyPostInfo">
       <div className="nameWrapper">
         <div className="infoName">Name:</div>
-        <h3 className="name">Bertha- Adopted</h3>
+        <h3 className="name"> {name}</h3>
       </div>
 
       <div className="nameWrapper">
         <div className="infoName">Species:</div>
-        <div className="specie">Equine</div>
+        <div className="specie">{specie}</div>
         <div className="separator">|</div>
 
         <div className="infoName">Breed: </div>
-        <div className="specie">Donkey</div>
+        <div className="specie">{breed}</div>
       </div>
 
 
     <div className="dChecks">
        <div className="check">
-       <div className="customCheck "></div>
+       <div className={`customCheck ${type==="Jack"? 'checkTrue' :''} `}></div>
        <label className="checkLabel" htmlFor="">Jack</label>
        </div>
        
 
        <div className="check">
-       <div className="customCheck checkTrue"></div>
+       <div className={`customCheck ${type==="Jenny"? 'checkTrue' :''} `}></div>
        <label className="checkLabel" htmlFor="">Jenny</label>
        </div>
 
 
        <div className="check">
-       <div className="customCheck "></div>
+       <div className={`customCheck ${type==="Gelding"? 'checkTrue' :''} `}></div>
        <label className="checkLabel" htmlFor="">Gelding</label>
        </div>
 
@@ -46,7 +47,7 @@ function DonkeyPostInfo() {
            Colors:
                </div>
             <div className="dColorNames">
-                Dark Brown, Long Hair
+                {color}
             </div>
        </div>
     </div>
@@ -59,7 +60,7 @@ function DonkeyPostInfo() {
           </div>
 
           <div className="dDescText">
-              | Large
+              | {description}
           </div>
       </div>
 
@@ -73,7 +74,7 @@ function DonkeyPostInfo() {
           <div className="birthTable">
             <div className="month">
             <div className="monthNum">
-                    1
+                    {month}
               </div>
               <br />
               <div className="monthLabel">
@@ -83,7 +84,7 @@ function DonkeyPostInfo() {
 
             <div className="month">
             <div className="monthNum">
-                    2016
+                    {year}
               </div>
               <br />
               <div className="monthLabel">
@@ -93,7 +94,7 @@ function DonkeyPostInfo() {
             
             <div style={{border:'none'}} className="month">
             <div className="monthNum">
-                    5
+                    {age}
               </div>
               <br />
               <div className="monthLabel">
@@ -112,7 +113,7 @@ function DonkeyPostInfo() {
     </div>
 
     <div className="notesText">
-        About 8 months pregnant
+        {notes}
     </div>
 </div>
 
@@ -122,7 +123,7 @@ function DonkeyPostInfo() {
 
     
     <div className="imageWrapper">
-        <img className='animalImage' src={home}  alt="" />
+        <img className='animalImage' src={image?image:home}  alt="" />
         
         <div className="border">
        <div className="borderBackground"></div>

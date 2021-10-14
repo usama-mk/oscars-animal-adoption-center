@@ -16,11 +16,12 @@ function CreateCard() {
   const [description, setDescription] = useState("");
   const [month, setMonth] = useState();
   const [year, setYear] = useState();
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Jack");
   const [age, setAge] = useState("");
   const [notes, setNotes] = useState("");
   const [status, setStatus] = useState("");
   const [before, setBefore] = useState("");
+  const[image, setImage]= useState('')
 
   const posts= useSelector(state=> state.animals)
   const dispatch= useDispatch()
@@ -28,10 +29,21 @@ function CreateCard() {
   const handleCreateCard = (e) => {
      
     e.preventDefault();
-
+    console.log(type)
     dispatch(addAnimal({
         name: name,
-        breed: breed
+        specie: specie,
+        breed: breed,
+        color: color,
+        description: description,
+        month: month,
+        year: year,
+        type: type,
+        age: age,
+        notes: notes,
+        status: status,
+        before: before,
+        image: image
     }))
 
     console.log(posts)
@@ -39,8 +51,14 @@ function CreateCard() {
   };
 
   const handleSelectChange = (option) => {
-    setType(option.value);
+    setType(option.target.value);
   };
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+    setImage(URL.createObjectURL(event.target.files[0]))
+    }
+   }
   return (
     <div className="CreateCard flex-center">
         <Link to='./'>
@@ -133,6 +151,7 @@ function CreateCard() {
           required
           hint="Before Oscar's Place"
         />
+        <input type="file" onChange={onImageChange} className="filetype" id="group_image"/>
         <Button required type="submit">
           Submit
         </Button>

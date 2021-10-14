@@ -1,7 +1,7 @@
 import React from 'react'
 import './DonkeyCardFooter.css'
 
-function DonkeyCardFooter() {
+function DonkeyCardFooter({status, before}) {
     return (
         <div className="DonkeyCardFooter" >
             <div className="footerDetails">
@@ -9,7 +9,7 @@ function DonkeyCardFooter() {
                 Before Oscar's Place
             </div>
             <div className="bop">
-                Bakersfield
+                {before}
             </div>
 
             
@@ -19,7 +19,7 @@ function DonkeyCardFooter() {
              </div>
 
              <div className="footerStatusText">
-                 Recovery & Observation
+                 {status}
              </div>
         </div>
     )
