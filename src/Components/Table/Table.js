@@ -39,7 +39,6 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
   });
   // console.log("Current cities in CA: ", tempComments);
   setComments(tempComments)
-  console.log(tempComments[0].data)
 });
 
   // setComments(tempComments)
@@ -152,6 +151,7 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
                     });
                   }}
                 />
+                <br />
                 <ReactBootStrap.Button onClick={(e)=>{
                   updateComment(e)
                 }} >

@@ -9,8 +9,8 @@ function History({ id }) {
   const [admin, setAdmin] = useState(true);
   const [editor, setEditor] = useState(true);
   const [personality, setPesonality] = useState("");
-  const [bonded, setBonded] = useState("Delores");
-  const [pasture, setPasture] = useState("Back Pasture");
+  const [bonded, setBonded] = useState("");
+  const [pasture, setPasture] = useState("");
   const [comments, setComments] = useState("");
   useEffect(async () => {
     console.log(id);

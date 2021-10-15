@@ -8,6 +8,7 @@ import { addAnimal, setAnimals } from "../../actions";
 import { Link } from "react-router-dom";
 import { doc, setDoc, Timestamp, collection } from "firebase/firestore"; 
 import { db } from "../../firebase";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 function CreateCard() {
   // const[name, setName]= useState('')
@@ -27,7 +28,9 @@ function CreateCard() {
 
   const posts= useSelector(state=> state.animals)
   const dispatch= useDispatch()
-
+  // Create a root reference
+const storage = getStorage();
+const storageRef = ref(storage, 'some-child');
   const handleCreateCard = async (e) => {
      
     e.preventDefault();
@@ -79,6 +82,9 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
     setImage(URL.createObjectURL(event.target.files[0]))
+    uploadBytes(storageRef, event.target.files[0]).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+    });
     }
    }
   return (
