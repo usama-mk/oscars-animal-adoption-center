@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addAnimal, setAnimals } from "../../actions";
 import { Link } from "react-router-dom";
+import { doc, setDoc, Timestamp, collection } from "firebase/firestore"; 
+import { db } from "../../firebase";
 
 function CreateCard() {
   // const[name, setName]= useState('')
@@ -26,25 +28,45 @@ function CreateCard() {
   const posts= useSelector(state=> state.animals)
   const dispatch= useDispatch()
 
-  const handleCreateCard = (e) => {
+  const handleCreateCard = async (e) => {
      
     e.preventDefault();
     console.log(type)
-    dispatch(addAnimal({
-        name: name,
-        specie: specie,
-        breed: breed,
-        color: color,
-        description: description,
-        month: month,
-        year: year,
-        type: type,
-        age: age,
-        notes: notes,
-        status: status,
-        before: before,
-        image: image
-    }))
+    
+
+const docData = {
+  name: name,
+  specie: specie,
+  breed: breed,
+  color: color,
+  description: description,
+  month: month,
+  year: year,
+  type: type,
+  age: age,
+  notes: notes,
+  status: status,
+  before: before,
+  image: image,
+    date: Timestamp.fromDate(new Date()),
+   
+};
+await setDoc(doc(collection(db, "animalsPost")), docData);
+    // dispatch(addAnimal({
+    //     name: name,
+    //     specie: specie,
+    //     breed: breed,
+    //     color: color,
+    //     description: description,
+    //     month: month,
+    //     year: year,
+    //     type: type,
+    //     age: age,
+    //     notes: notes,
+    //     status: status,
+    //     before: before,
+    //     image: image
+    // }))
 
     console.log(posts)
     

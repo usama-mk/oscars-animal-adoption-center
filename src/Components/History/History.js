@@ -1,14 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./History.css";
 import Table from "../Table/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { collection, doc, getDoc, getDocs, setDoc } from "@firebase/firestore";
+import { db } from "../../firebase";
 
-function History() {
+function History({ id }) {
   const [admin, setAdmin] = useState(true);
   const [editor, setEditor] = useState(true);
   const [personality, setPesonality] = useState("");
   const [bonded, setBonded] = useState("Delores");
   const [pasture, setPasture] = useState("Back Pasture");
+  const [comments, setComments] = useState("");
+  useEffect(async () => {
+    console.log(id);
+    setPasture("whatever in firebase");
+  }, []);
+
+  const changePersonality = async (e) => {
+    setPesonality(e.target.value);
+    const commentRef = doc(db, "animalsPost", id, "personality", id);
+    //coll doc coll doc
+    await setDoc(commentRef, { comment: e.target.value });
+  };
+
+  const changePasture= async(e)=>{
+    setPasture(e.target.value)
+    const pastureRef = doc(db, "animalsPost", id, "pasture", id);
+    //coll doc coll doc
+    await setDoc(pastureRef, { pasture: e.target.value });
+  }
+
+  const changeBonded= async(e)=>{
+    setBonded(e.target.value)
+    const bondedRef = doc(db, "animalsPost", id, "bonded", id);
+    //coll doc coll doc
+    await setDoc(bondedRef, { bonded: e.target.value });
+  }
   return (
     <div className="History borderAround">
       <div className="historyHeader greyBG pl5 whiteText">
@@ -28,7 +56,7 @@ function History() {
               type="text"
               placeholder=" Click or tap here to enter text."
               value={personality}
-              onChange={(e) => setPesonality(e.target.value)}
+              onChange={(e) => changePersonality(e)}
             />
           ) : (
             personality
@@ -48,7 +76,7 @@ function History() {
               style={{ border: "none" }}
               type="text"
               value={bonded}
-              onChange={(e) => setBonded(e.target.value)}
+              onChange={(e) => changeBonded(e)}
             />
           ) : (
             bonded
@@ -62,7 +90,7 @@ function History() {
               style={{ border: "none" }}
               type="text"
               value={pasture}
-              onChange={(e) => setPasture(e.target.value)}
+              onChange={(e) => changePasture(e)}
             />
           ) : (
             pasture
@@ -70,7 +98,7 @@ function History() {
         </div>
       </div>
 
-      <Table />
+      <Table id={id} />
       {/* History end */}
     </div>
   );
