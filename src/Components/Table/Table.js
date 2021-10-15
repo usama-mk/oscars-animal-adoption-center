@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./Table.css";
 import * as ReactBootStrap from "react-bootstrap";
-import { collection, doc, onSnapshot, getDoc, getDocs, setDoc, query, where } from "@firebase/firestore";
+import { collection, doc, onSnapshot, getDoc, getDocs, setDoc, query, where, deleteDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
 
 function Table({ id }) {
@@ -24,48 +24,10 @@ function Table({ id }) {
       const newValue = e.target.value;
       //coll doc coll doc
       await setDoc(commentsRef, { comment: newComment });
-
-
-    // if (e.target.name == "commentDate") {
-    //   setNewComment({ ...newComment, date: e.target.value });
-    //   const newValue = e.target.value;
-    //   //coll doc coll doc
-    //   await setDoc(commentsRef, { comment: { ...newComment, date: newValue } });
-    // }
-
-    // if (e.target.name == "commentExamDetails") {
-    //   setNewComment({ ...newComment, examDetails: e.target.value });
-    //   const newValue = e.target.value;
-    //   //coll doc coll doc
-    //   await setDoc(commentsRef, {
-    //     comment: { ...newComment, examDetails: newValue },
-    //   });
-    // }
-
-    // if (e.target.name == "commentNextSteps") {
-    //   setNewComment({ ...newComment, nextSteps: e.target.value });
-    //   const newValue = e.target.value;
-    //   //coll doc coll doc
-    //   await setDoc(commentsRef, {
-    //     comment: { ...newComment, nextSteps: newValue },
-    //   });
-    // }
   };
 
   useEffect( async()=>{
-  //   const querySnapshot = await getDocs(collection(db, "animalsPost", id, "comments"));
-     
-  //    var tempComments=[]
-
-  // querySnapshot.forEach((doc) => {
-  //   console.log(doc.id, doc.data());
-
-  //   tempComments.push({
-  //   id: doc.id,
-  //   data: doc.data()
-  // })
-  // })
-
+   
   const q = query(collection(db, "animalsPost", id, "comments"));
 const unsubscribe = onSnapshot(q, (querySnapshot) => {
   const tempComments = [];
@@ -85,27 +47,11 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
 
   const editComment=async (comment, e)=>{
     setEdit(true)
-    // const q = query(doc(db, "animalsPost", id, "comments", comment.id));
- 
-    // await setDoc(doc(db, "animalsPost", id, "comments", comment.id), {
-    //    date: date,
-    //    examDetails: examDetails,
-    //    nextSteps: nextSteps,
-    // });
-
-
+     
   }
 
-  const submitEditedComment= async(comment, e)=>{
-    setEdit(false)
-
-    const q = query(doc(db, "animalsPost", id, "comments", comment.id));
- 
-    await setDoc(doc(db, "animalsPost", id, "comments", comment.id), {
-       date: date,
-       examDetails: examDetails,
-       nextSteps: nextSteps,
-    });
+  const deleteComment= async(comment, e)=>{
+    await deleteDoc(doc(db, "animalsPost", id, "comments", comment.id));
   }
 
   return (
@@ -124,52 +70,50 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
               <tr className="center">
                 <td>
                   {admin || editor ? (
-                    edit?<input
-                    type="text"
-                    value={ comment.data?.comment.date}
+                  //   edit?<input
+                  //   type="text"
+                  //   value={ comment.data?.comment.date  }
                     
-                    onChange={(e) => setDate(e.target.value)}
-                  />:
-                  <h5>{ comment.data?.comment.date}</h5>
+                  //   onChange={(e) => setDate(e.target.value)}
+                  // />:
+                <div> {comment.data?.comment.date}</div>
                   ) : (
-                    comment.data?.comment.date
+                    <div> {comment.data?.comment.date}</div>
                   )}
                  
                 </td>
                 <td>
                   {admin || editor ? (
-                    <input
-                      type="text"
-
-                      value={ comment.data?.comment.examDetails}
-                      onChange={(e) => setExamDetails(e.target.value)}
-                    />
+                    // <input
+                    //   type="text"
+                    //   value={ comment.data?.comment.examDetails}
+                    //   onChange={(e) => setExamDetails(e.target.value)}
+                    // />
+                    <div> {comment.data?.comment.examDetails}</div>
                   ) : (
-                    comment.data.comment.examDetails
+                    <div> {comment.data?.comment.examDetails}</div>
                   )}
                   
                 </td>
                 <td>
                   {admin || editor ? (
-                    <input
-                      type="text"
-                      value={ comment.data?.comment.nextSteps}
-                      onChange={(e) => {
-                        setNextSteps(e.target.value);
-                      }}
-                    />
+                    // <input
+                    //   type="text"
+                    //   value={ comment.data?.comment.nextSteps}
+                    //   onChange={(e) => {
+                    //     setNextSteps(e.target.value);
+                    //   }}
+                    // />
+                    <div> {comment.data?.comment.nextSteps}</div>
                   ) : (
-                    comment.data?.comment.nextSteps
+                    <div> {comment.data?.comment.nextSteps}</div>
                   )}
                 </td>
                  {
                     admin || editor ?
                     
-                    edit? <button onClick={(e)=> submitEditedComment(comment,e)} >Submit</button>:
-                    <button onClick={(e)=> {
-                   
-                      editComment(comment,e)}} >edit</button>
-                    
+                   <button onClick={(e)=> deleteComment(comment,e)} >DELETE</button>
+                     
                       :''
                   }
               </tr>
