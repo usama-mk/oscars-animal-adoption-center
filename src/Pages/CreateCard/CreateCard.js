@@ -5,6 +5,9 @@ import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addAnimal, setAnimals } from "../../actions";
+import {  LinearProgress } from '@material-ui/core';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { doc, setDoc, Timestamp, collection } from "firebase/firestore"; 
 import { db } from "../../firebase";
@@ -25,12 +28,12 @@ function CreateCard() {
   const [status, setStatus] = useState("");
   const [before, setBefore] = useState("");
   const[image, setImage]= useState('')
+  const [progress, setProgress]= useState(0)
 
   const posts= useSelector(state=> state.animals)
   const dispatch= useDispatch()
   // Create a root reference
 const storage = getStorage();
-// const storageRef = ref(storage, './images');
   const handleCreateCard = async (e) => {
      
     e.preventDefault();
@@ -60,23 +63,34 @@ const docData = {
    
 };
 await setDoc(doc(collection(db, "animalsPost")), docData);
-    // dispatch(addAnimal({
-    //     name: name,
-    //     specie: specie,
-    //     breed: breed,
-    //     color: color,
-    //     description: description,
-    //     month: month,
-    //     year: year,
-    //     type: type,
-    //     age: age,
-    //     notes: notes,
-    //     status: status,
-    //     before: before,
-    //     image: image
-    // }))
+     
 
     console.log(posts)
+
+    toast.success('🚀 Post Successfully added the data to the database ', {
+      position: "bottom-center",
+      autoClose: true,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  // alert('success')
+    setName('')
+    setSpecie('')
+    setBreed('')
+    setColor('')
+    setType('Jack')
+    setDescription('')
+    setMonth('')
+    setYear('')
+    setAge('')
+    setNotes('')
+    setStatus('')
+    setBefore('')
+    setImage('')
+    setProgress(0)
     
   };
 
@@ -97,6 +111,7 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
+      setProgress(progress)
       switch (snapshot.state) {
         case 'paused':
           console.log('Upload is paused');
@@ -115,7 +130,21 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         console.log('File available at', downloadURL);
         setImage(downloadURL)
+
+        
+      toast.success('🚀 Image Successfully added the data to the database ', {
+        position: "bottom-center",
+        autoClose: true,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+        setProgress(0)
       });
+
+       
     }
   );
     }
@@ -213,9 +242,12 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
           hint="Before Oscar's Place"
         />
         <input type="file" onChange={onImageChange} className="filetype" id="group_image"/>
+        
+        <LinearProgress color="primary" variant="determinate" value={progress} />
         <Button required type="submit">
           Submit
         </Button>
+        <ToastContainer />
       </form>
     </div>
   );

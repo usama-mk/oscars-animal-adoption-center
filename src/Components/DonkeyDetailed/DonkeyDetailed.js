@@ -16,12 +16,14 @@ function DonkeyDetailed({name, breed, specie, type, description, month, year, co
    
     return (
         <div className="DonkeyDetailed">
+            
             {
                 admin && 
                 <Button onClick={deletePost} style={{backgroundColor: 'red'}} >
                     Delete
                 </Button>
             }
+
             <DonkeyCard name={name} specie= { specie} breed={ breed} type={ type} description={ description} month={ month} year={ year} color={ color} age={ age} notes={ notes} status={ status} before={ before} image={image} id={id} datex={datex} monthx={monthx} yearx={yearx}  />
             <History id={id} />
         </div>

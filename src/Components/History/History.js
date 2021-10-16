@@ -103,8 +103,12 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
               value={personality}
               onChange={(e) => changePersonality(e)}
             />
+            
           ) : (
-            personality
+            <div className="overflowY" >
+              {personality}
+              
+            </div>
           )}
         </div>
       </div>
@@ -126,7 +130,10 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
               onChange={(e) => changeBonded(e)}
             />
           ) : (
-            bonded
+            <div className="overflowY">
+              {bonded}
+
+            </div>
           )}
         </div>
          </div>
@@ -143,7 +150,10 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
               onChange={(e) => changePasture(e)}
             />
           ) : (
-            pasture
+            <div className="overflowY">
+              {pasture}
+
+            </div>
           )}
         </div>
         </div>

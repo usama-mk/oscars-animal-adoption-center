@@ -72,43 +72,28 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
               <tr className="center">
                 <td>
                   {admin || editor ? (
-                  //   edit?<input
-                  //   type="text"
-                  //   value={ comment.data?.comment.date  }
-                    
-                  //   onChange={(e) => setDate(e.target.value)}
-                  // />:
-                <div> {comment.data?.comment.date}</div>
+                  
+                <div classname="overflowY"> {comment.data?.comment.date}</div>
                   ) : (
-                    <div> {comment.data?.comment.date}</div>
+                    <div classname="overflowY" > {comment.data?.comment.date}</div>
                   )}
                  
                 </td>
                 <td>
                   {admin || editor ? (
-                    // <input
-                    //   type="text"
-                    //   value={ comment.data?.comment.examDetails}
-                    //   onChange={(e) => setExamDetails(e.target.value)}
-                    // />
-                    <div> {comment.data?.comment.examDetails}</div>
+                   
+                    <div classname="overflowY" > {comment.data?.comment.examDetails}</div>
                   ) : (
-                    <div> {comment.data?.comment.examDetails}</div>
+                    <div classname="overflowY" > {comment.data?.comment.examDetails}</div>
                   )}
                   
                 </td>
                 <td>
                   {admin || editor ? (
-                    // <input
-                    //   type="text"
-                    //   value={ comment.data?.comment.nextSteps}
-                    //   onChange={(e) => {
-                    //     setNextSteps(e.target.value);
-                    //   }}
-                    // />
-                    <div> {comment.data?.comment.nextSteps}</div>
+                    
+                    <div classname="overflowY"> {comment.data?.comment.nextSteps}</div>
                   ) : (
-                    <div> {comment.data?.comment.nextSteps}</div>
+                    <div classname="overflowY"> {comment.data?.comment.nextSteps}</div>
                   )}
                 </td>
                  {
@@ -130,6 +115,7 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
                   name="commentDate"
                   value={newComment.date}
                   onChange={(e) => {
+                    e.stopPropagation()
                     setNewComment({
                       ...newComment,
                       date: e.target.value,

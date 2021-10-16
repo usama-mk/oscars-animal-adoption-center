@@ -8,7 +8,7 @@ function DonkeyCardFooter({status, before}) {
             <div className="BeforeOscarPlace">
                 Before Oscar's Place
             </div>
-            <div className="bop">
+            <div className="bop overflowY">
                 {before}
             </div>
 
@@ -18,7 +18,7 @@ function DonkeyCardFooter({status, before}) {
                  Status:
              </div>
 
-             <div className="footerStatusText">
+             <div className="footerStatusText overflowY">
                  {status}
              </div>
         </div>

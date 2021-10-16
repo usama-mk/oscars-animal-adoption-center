@@ -9,16 +9,16 @@ function DonkeyPostInfo({name, breed, specie, type, description, month, year, co
         <div className="DonkeyPostInfo">
       <div className="nameWrapper">
         <div className="infoName">Name:</div>
-        <h3 className="name"> {name}</h3>
+        <h3 className="name overflowY"> {name}</h3>
       </div>
 
       <div className="nameWrapper">
         <div className="infoName">Species:</div>
-        <div className="specie">{specie}</div>
+        <div className="specie overflowY">{specie}</div>
         <div className="separator">|</div>
 
         <div className="infoName">Breed: </div>
-        <div className="specie">{breed}</div>
+        <div className="specie overflowY">{breed}</div>
       </div>
 
 
@@ -46,7 +46,7 @@ function DonkeyPostInfo({name, breed, specie, type, description, month, year, co
            <div className="dColorsLabel">
            Colors:
                </div>
-            <div className="dColorNames">
+            <div className="dColorNames overflowY">
                 {color}
             </div>
        </div>
@@ -59,7 +59,7 @@ function DonkeyPostInfo({name, breed, specie, type, description, month, year, co
               Description:
           </div>
 
-          <div className="dDescText">
+          <div className="dDescText overflowY">
               | {description}
           </div>
       </div>
@@ -112,7 +112,7 @@ function DonkeyPostInfo({name, breed, specie, type, description, month, year, co
     Intake Notes
     </div>
 
-    <div className="notesText">
+    <div className="notesText overflowY">
         {notes}
     </div>
 </div>
