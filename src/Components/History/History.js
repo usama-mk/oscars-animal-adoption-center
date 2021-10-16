@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./History.css";
 import Table from "../Table/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { collection, doc, getDoc, getDocs, setDoc } from "@firebase/firestore";
+import {onSnapshot,query,  collection, doc, getDoc, getDocs, setDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
 
 function History({ id }) {
@@ -13,8 +13,46 @@ function History({ id }) {
   const [pasture, setPasture] = useState("");
   const [comments, setComments] = useState("");
   useEffect(async () => {
-    console.log(id);
-    setPasture("whatever in firebase");
+    // setPasture("whatever in firebase");
+    const q = query(collection(db, "animalsPost", id, "pasture"));
+const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  const tempPasture = [];
+  querySnapshot.forEach((doc) => {
+    tempPasture.push({
+      id: doc.id,
+      data: doc.data()
+    });
+  });
+  
+  setPasture(tempPasture[0]?.data.pasture)
+});
+
+const q1 = query(collection(db, "animalsPost", id, "bonded"));
+const unsubscribe1 = onSnapshot(q1, (querySnapshot) => {
+  const tempBonded = [];
+  querySnapshot.forEach((doc) => {
+    tempBonded.push({
+      id: doc.id,
+      data: doc.data()
+    });
+  });
+  
+  setBonded(tempBonded[0]?.data.bonded)
+});
+
+  const q2 = query(collection(db, "animalsPost", id, "personality"));
+const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
+  const tempPersonality = [];
+  querySnapshot.forEach((doc) => {
+    tempPersonality.push({
+      id: doc.id,
+      data: doc.data()
+    });
+  });
+  
+  setPesonality(tempPersonality[0]?.data.comment)
+});
+
   }, []);
 
   const changePersonality = async (e) => {
