@@ -2,6 +2,8 @@
     display: flex;
     margin-top: 50px;
     flex-direction: column;
+    flex-wrap: wrap;
+
 }
 
 .borderAround{
@@ -26,6 +28,8 @@
 
 .flex{
     display: flex;
+    flex-wrap: wrap;
+
 }
 
 .jc{
@@ -37,6 +41,12 @@
     width: fit-content;
 }
 
+.Bonded{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
 .mg20{
     padding-bottom: 20px;
 }
@@ -55,7 +65,7 @@
 }
 
 .mr40P{
-    margin-right: 40%;
+    margin-right: 10%;
 }
 
 .pl5{

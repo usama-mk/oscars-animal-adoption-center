@@ -58,7 +58,7 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
 
   return (
     <div className="Table">
-      <ReactBootStrap.Table striped bordered hover>
+      <ReactBootStrap.Table responsive striped bordered hover>
         <thead>
           <tr>
             <th className="center">Date</th>

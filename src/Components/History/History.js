@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./History.css";
 import Table from "../Table/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -112,7 +112,8 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
       {/* Bonded Companion */}
 
       <div className="Bonded borderAround flex">
-        <div className="BondedC borderAround wFit plr10  ">
+       <div >
+       <div className="BondedC borderAround wFit plr10  ">
           Bonded Companion:
         </div>
         <div className="bondedText mr40P pl5">
@@ -127,7 +128,9 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
             bonded
           )}
         </div>
+         </div>
 
+        <div>
         <div className="Pasture borderAround wFit plr10  ">Pasture:</div>
         <div className="pastureText pl5">
           {admin || editor ? (
@@ -140,6 +143,7 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
           ) : (
             pasture
           )}
+        </div>
         </div>
       </div>
 

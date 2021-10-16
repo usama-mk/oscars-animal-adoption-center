@@ -6,6 +6,7 @@
 .nameWrapper{
     display: flex;
     border: 1px solid black;
+    flex-wrap: wrap;
 }
 
 .infoName{
@@ -44,6 +45,8 @@
 }
 .dChecks{
     display: flex;
+    flex-wrap: wrap;
+
 }
 
 .check{
@@ -58,6 +61,8 @@
 .dColors{
     display: flex;
     margin-left: 9%;
+    flex-wrap: wrap;
+
 }
 
 .dColorsLabel{
@@ -91,9 +96,12 @@
     display: flex;
     align-items: center;
     /* padding-bottom: 50px; */
+
 }
 .birthTable{
     display: flex;
+    flex-wrap: wrap;
+
 }
 
 .month{
@@ -143,12 +151,13 @@
 }
 
 .border{
+
 }
 
 .borderBackground{
     border: 1px solid black;
     min-height: 20px;
     min-width: 20px;
-    width: 122%;
+    width: 110%;
     background-color: gray;
 }
