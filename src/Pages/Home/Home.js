@@ -90,13 +90,7 @@ if (docSnap.exists()) {
 }
   },[admin, editor])
 
- const swiped=(direction, nameToDelete)=>{
-   console.log("removing"+ nameToDelete)
- }
 
- const outOfFrame=(name)=>{
-   console.log(name + 'left the screen')
- }
     return (
         <div className="Home" >
             {
@@ -118,17 +112,9 @@ if (docSnap.exists()) {
           {
             posts.map((post, key)=>{
               return (
-                <TinderCard
-                 className="swipe"
-                 key={key}
-                 preventSwipe={["up", "down"]}
-                 onSwipe={(dir)=> swiped(dir, post.data.name)}
-                 onCardLeftScreen={()=> outOfFrame(post.data.name)}
-                //  onClick={(e)=> e.currentTarget.remove()}
-
-                >
+               
                     <DonkeyDetailed key={key} name={post.data.name} specie= {post.data.specie} breed={post.data.breed} type={post.data.type} description={post.data.description} month={post.data.month} year={post.data.year} color={post.data.color} age={post.data.age} notes={post.data.notes} status={post.data.status} before={post.data.before} image={post.data.image} id={post.id} date={post.data.date} datex={post.data.datex} monthx={post.data.monthx} yearx={post.data.yearx}  />
-                </TinderCard>
+               
               )
             })
           }

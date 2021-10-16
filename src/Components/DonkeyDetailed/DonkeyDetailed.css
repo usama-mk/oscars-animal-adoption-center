@@ -5,8 +5,17 @@
     width: 100%;
     margin-bottom: 10%;
     pointer-events:none;
+    position: relative;
+    z-index: 2;
 }
 
+.swipe{
+    width: 70%;
+}
+.delete{
+    pointer-events:auto;
+
+}
 .overflowY{
     overflow-y: auto;
     overflow-x: hidden;
