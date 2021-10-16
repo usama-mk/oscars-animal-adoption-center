@@ -5,12 +5,12 @@ import DonkeyHeader from '../DonkeyHeader/DonkeyHeader'
 import DonkeyPostInfo from '../DonkeyPostInfo/DonkeyPostInfo'
 import './DonkeyCard.css'
 
-function DonkeyCard({name, breed, specie, type, description, month, year, color, age, notes, status, before, image}) {
+function DonkeyCard({name, breed, specie, type, description, month, color, age, notes, status, before, image, year, datex, monthx, yearx}) {
     
     return (
         <div className="DonkeyCard">
-            <DonkeyHeader />
-            <DonkeyPostInfo name={name} specie= { specie} breed={ breed} type={ type} description={ description} month={ month} year={ year} color={ color} age={ age} notes={ notes} image={image} />
+            <DonkeyHeader datex={datex} monthx={monthx} yearx={yearx}  />
+            <DonkeyPostInfo name={name} specie= { specie} breed={ breed} type={ type} description={ description} month={ month} year={ year} color={ color} age={ age} notes={ notes} image={image}  />
             <DonkeyCardFooter status={ status} before={ before}   />
         </div>
     )

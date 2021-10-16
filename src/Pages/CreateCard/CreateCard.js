@@ -37,6 +37,8 @@ const storage = getStorage();
     console.log(type)
     
 
+var currentDate= new Date()
+
 const docData = {
   name: name,
   specie: specie,
@@ -51,7 +53,10 @@ const docData = {
   status: status,
   before: before,
   image: image,
-    date: Timestamp.fromDate(new Date()),
+    datex: currentDate.getDate(),
+    monthx: currentDate.getMonth(),
+    yearx: currentDate.getFullYear()
+
    
 };
 await setDoc(doc(collection(db, "animalsPost")), docData);
@@ -117,7 +122,7 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
    }
   return (
     <div className="CreateCard flex-center">
-        <Link to='./'>
+        <Link to='./home'>
         back
         </Link>
       <form onSubmit={handleCreateCard}>

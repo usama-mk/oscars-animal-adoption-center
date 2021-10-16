@@ -1,14 +1,14 @@
 import React from 'react'
 import './DonkeyHeader.css'
 
-function DonkeyHeader() {
+function DonkeyHeader({datex, monthx, yearx}) {
     return (
         <div className="DonkeyHeader">
             <div className="dHeaderDate">
-               | Intake Date: 1/8/2021
+               | Intake Date: {`${datex} / ${monthx} / ${yearx}`}
             </div>
         </div>
     )
-}
+} 
 
 export default DonkeyHeader

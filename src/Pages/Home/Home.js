@@ -10,6 +10,7 @@ import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import './Home.css'
 import { useHistory } from 'react-router'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { Link } from 'react-router-dom'
 
 function Home() {
   const posts= useSelector(state => state.animals)
@@ -88,11 +89,17 @@ if (docSnap.exists()) {
     return (
         <div className="Home" >
             {
-              user && <Button onClick={handleLogout} >Logout</Button>
+              user && <div>
+                <Button onClick={handleLogout} >Logout</Button>
+              <br />
+              <Link to="/createcard" >
+              <Button>Create Post</Button>
+              </Link>
+              </div>
             }
           {
             posts.map((post, key)=>{
-              return <DonkeyDetailed key={key} name={post.data.name} specie= {post.data.specie} breed={post.data.breed} type={post.data.type} description={post.data.description} month={post.data.month} year={post.data.year} color={post.data.color} age={post.data.age} notes={post.data.notes} status={post.data.status} before={post.data.before} image={post.data.image} id={post.id} />
+              return <DonkeyDetailed key={key} name={post.data.name} specie= {post.data.specie} breed={post.data.breed} type={post.data.type} description={post.data.description} month={post.data.month} year={post.data.year} color={post.data.color} age={post.data.age} notes={post.data.notes} status={post.data.status} before={post.data.before} image={post.data.image} id={post.id} date={post.data.date} datex={post.data.datex} monthx={post.data.monthx} yearx={post.data.yearx}  />
             })
           }
         </div>
