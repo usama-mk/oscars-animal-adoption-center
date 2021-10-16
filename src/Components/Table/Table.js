@@ -3,6 +3,7 @@ import "./Table.css";
 import * as ReactBootStrap from "react-bootstrap";
 import { collection, doc, onSnapshot, getDoc, getDocs, setDoc, query, where, deleteDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
+import { useSelector } from "react-redux";
 
 function Table({ id }) {
   const [comments, setComments] = useState(["one", "two", "three"]);
@@ -14,8 +15,10 @@ function Table({ id }) {
   const [date, setDate] = useState("12/1/2020");
   const [examDetails, setExamDetails] = useState("rhino/flu");
   const [nextSteps, setNextSteps] = useState("Cattrina Lucas");
-  const [admin, setAdmin] = useState(true);
-  const [editor, setEditor] = useState(true);
+  // const [admin, setAdmin] = useState(true);
+  // const [editor, setEditor] = useState(true);
+  const admin = useSelector(state=> state.user.admin)
+  const editor = useSelector(state=> state.user.editor)
   const [edit, setEdit]= useState(false)
 
   const updateComment = async (e) => {
@@ -114,7 +117,7 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
                    <button onClick={(e)=> deleteComment(comment,e)} >DELETE</button>
                      
                       :''
-                  }
+                  } 
               </tr>
             );
           })}

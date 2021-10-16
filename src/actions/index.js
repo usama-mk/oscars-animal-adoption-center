@@ -5,6 +5,21 @@ export const setUser=(pay)=>{
     };
 }
 
+export const setAdmin=(pay)=>{
+    return{
+        type: 'SET_ADMIN',
+        payload: pay
+    };
+}
+
+export const setEditor=(pay)=>{
+    return{
+        type: 'SET_EDITOR',
+        payload: pay
+    };
+}
+
+
 export const setAnimals=(pay)=>{
     return{
         type: 'SET_ANIMALS',

@@ -7,7 +7,8 @@ const userReducer= (state={
         case 'SET_USER': //cases are actions basically
             return {...state, user: action.payload};
             case 'SET_ADMIN':
-            return {...state, admin: action.payload};
+            return {...state, admin: action.payload}; case 'SET_EDITOR':
+            return {...state, editor: action.payload};
         default:
             return state;
     }

@@ -4,10 +4,13 @@ import Table from "../Table/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {onSnapshot,query,  collection, doc, getDoc, getDocs, setDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
+import { useSelector } from "react-redux";
 
 function History({ id }) {
-  const [admin, setAdmin] = useState(true);
-  const [editor, setEditor] = useState(true);
+  // const [admin, setAdmin] = useState(true);
+  const admin = useSelector(state=> state.user.admin)
+  const editor = useSelector(state=> state.user.editor)
+  // const [editor, setEditor] = useState(true);
   const [personality, setPesonality] = useState("");
   const [bonded, setBonded] = useState("");
   const [pasture, setPasture] = useState("");
@@ -75,7 +78,11 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
     //coll doc coll doc
     await setDoc(bondedRef, { bonded: e.target.value });
   }
-  return (
+
+  useEffect(()=>{
+    console.log(`admin: ${admin} editor: ${editor}}`)
+  },[])
+  return ( 
     <div className="History borderAround">
       <div className="historyHeader greyBG pl5 whiteText">
         Oscar's Place History

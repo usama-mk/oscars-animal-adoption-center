@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
 import logo from "../../assets/images/logo.svg";
 import register from "../../assets/images/register.svg";
-import { firebaseApp } from "../../firebase";
+import { db, firebaseApp } from "../../firebase";
 import { auth } from "../../firebase";
 import { Redirect, useHistory } from "react-router";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@firebase/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from '../../actions'
 import { useSelector } from "react-redux";
+import { collection, doc, setDoc } from "@firebase/firestore";
 
 
 function Register({  }) {
@@ -72,11 +73,17 @@ function Register({  }) {
   const handleSignup = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-      .then((user) => {
+      .then(async(user) => {
         console.log(user);
         console.log("success signup");
-        console.log(user.email);
+        // console.log(user.user?.email);
         dispatch(setUser(user))
+        await setDoc(doc(db, "users", user.user?.uid),{
+          userEmail: user.user?.email,
+          id: user.user?.uid,
+          admin:'',
+          editor: ''
+        });
         history.push("./home");
       })
       .catch(function (error) {
@@ -87,6 +94,10 @@ function Register({  }) {
         // ...
       });
   };
+
+  useEffect(()=>{
+    console.log(user.user?.email)
+  },[])
 
   return user ? (
     <Redirect to="/home" />
