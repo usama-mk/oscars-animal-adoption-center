@@ -122,7 +122,7 @@
 }
 .intakeNotes{
     
-    background-color: lightgray;
+    background-color: #f2f2f2;
     padding-bottom: 10px;
 }
 
@@ -159,5 +159,5 @@
     min-height: 20px;
     min-width: 20px;
     width: 110%;
-    background-color: gray;
+    background-color: #767170;
 }

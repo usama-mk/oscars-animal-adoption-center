@@ -13,11 +13,13 @@ import { useHistory } from 'react-router'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Link } from 'react-router-dom'
 import { SwipeableDrawer } from '../../../../posts-app/node_modules/@material-ui/core'
+import logoTitleTransparentBg from '../../assets/logoTitleTransparentBg.png'
 
 function Home() {
   const posts= useSelector(state => state.animals)
   const user= useSelector(state => state.user.user)
   const admin= useSelector(state => state.user.admin)
+  const editor= useSelector(state => state.user.editor)
   const [uid, setUid]= useState()
   const auth = getAuth();
   const history= useHistory()
@@ -54,23 +56,7 @@ onAuthStateChanged(auth, (user) => {
   useEffect(async()=>{
     authListener()
     console.log(user)
-    // one time get posts
-  //   const querySnapshot = await getDocs(collection(db, "animalsPost"));
-  //   // querySnapshot.forEach((doc) => {
-  //   //       console.log(doc.id, doc.data());
-           
-  //   //     })
-  //    var temp=[]
-
-  // querySnapshot.forEach((doc) => {
-  //   console.log(doc.id, doc.data());
-
-  //  temp.push({
-  //   id: doc.id,
-  //   data: doc.data()
-  // })
-  // })
-  // dispatch(setAnimals(temp))
+     
 
   //real time get posts
   const q = query(collection(db, "animalsPost"));
@@ -102,7 +88,7 @@ if (docSnap.exists()) {
   dispatch(setAdmin(''))
   dispatch(setEditor(''))
 }
-  },[])
+  },[admin, editor])
 
  const swiped=(direction, nameToDelete)=>{
    console.log("removing"+ nameToDelete)
@@ -114,7 +100,7 @@ if (docSnap.exists()) {
     return (
         <div className="Home" >
             {
-              user && <div>
+              user && <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column'}} >
                 <Button onClick={handleLogout} >Logout</Button>
               <br />
               {
@@ -123,6 +109,10 @@ if (docSnap.exists()) {
               <Button>Create Post</Button>
               </Link>
               }
+
+              <div className="logo">
+                <img src={logoTitleTransparentBg} alt="" width='400' height= '400'  />
+              </div>
               </div>
             }
           {
