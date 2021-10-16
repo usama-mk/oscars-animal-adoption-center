@@ -1,12 +1,11 @@
-.Home{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.swipe{
-    position: relative;
-    z-index: 1;
-    pointer-events:auto;
-
+.swipe {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
 }

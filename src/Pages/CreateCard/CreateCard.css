@@ -1,22 +1,21 @@
-.CreateCard{
-    width: 100vw;
+.CreateCard {
+  width: 100vw;
 }
 
-.CreateCard>input{
-    width: 100%;
+.CreateCard > input {
+  width: 100%;
 }
 
-.flex-center{
-    display: flex;
-    justify-content: center;
+.flex-center {
+  display: flex;
+  justify-content: center;
 }
 
-.CreateCard>form{
-    width: 80%;
-    margin-top: 50px;
-
+.CreateCard > form {
+  width: 80%;
+  margin-top: 50px;
 }
 
-.CreateCard>form input {
-    width: 100%;
+.CreateCard > form input {
+  width: 100%;
 }

@@ -5,13 +5,19 @@ import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addAnimal, setAnimals } from "../../actions";
-import {  LinearProgress } from '@material-ui/core';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { LinearProgress } from "@material-ui/core";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-import { doc, setDoc, Timestamp, collection } from "firebase/firestore"; 
+import { doc, setDoc, Timestamp, collection } from "firebase/firestore";
 import { db } from "../../firebase";
-import { getStorage, ref, uploadBytes,  uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 function CreateCard() {
   // const[name, setName]= useState('')
@@ -27,48 +33,43 @@ function CreateCard() {
   const [notes, setNotes] = useState("");
   const [status, setStatus] = useState("");
   const [before, setBefore] = useState("");
-  const[image, setImage]= useState('')
-  const [progress, setProgress]= useState(0)
+  const [image, setImage] = useState("");
+  const [progress, setProgress] = useState(0);
 
-  const posts= useSelector(state=> state.animals)
-  const dispatch= useDispatch()
+  const posts = useSelector((state) => state.animals);
+  const dispatch = useDispatch();
   // Create a root reference
-const storage = getStorage();
+  const storage = getStorage();
   const handleCreateCard = async (e) => {
-     
     e.preventDefault();
-    console.log(type)
-    
+    console.log(type);
 
-var currentDate= new Date()
+    var currentDate = new Date();
 
-const docData = {
-  name: name,
-  specie: specie,
-  breed: breed,
-  color: color,
-  description: description,
-  month: month,
-  year: year,
-  type: type,
-  age: age,
-  notes: notes,
-  status: status,
-  before: before,
-  image: image,
-    datex: currentDate.getDate(),
-    monthx: currentDate.getMonth(),
-    yearx: currentDate.getFullYear(),
-    time: currentDate
+    const docData = {
+      name: name,
+      specie: specie,
+      breed: breed,
+      color: color,
+      description: description,
+      month: month,
+      year: year,
+      type: type,
+      age: age,
+      notes: notes,
+      status: status,
+      before: before,
+      image: image,
+      datex: currentDate.getDate(),
+      monthx: currentDate.getMonth(),
+      yearx: currentDate.getFullYear(),
+      time: currentDate,
+    };
+    await setDoc(doc(collection(db, "animalsPost")), docData);
 
-   
-};
-await setDoc(doc(collection(db, "animalsPost")), docData);
-     
+    console.log(posts);
 
-    console.log(posts)
-
-    toast.success('🚀 Post Successfully added the data to the database ', {
+    toast.success("🚀 Post Successfully added the data to the database ", {
       position: "bottom-center",
       autoClose: true,
       hideProgressBar: false,
@@ -76,23 +77,22 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      });
-  // alert('success')
-    setName('')
-    setSpecie('')
-    setBreed('')
-    setColor('')
-    setType('Jack')
-    setDescription('')
-    setMonth('')
-    setYear('')
-    setAge('')
-    setNotes('')
-    setStatus('')
-    setBefore('')
-    setImage('')
-    setProgress(0)
-    
+    });
+    // alert('success')
+    setName("");
+    setSpecie("");
+    setBreed("");
+    setColor("");
+    setType("Jack");
+    setDescription("");
+    setMonth("");
+    setYear("");
+    setAge("");
+    setNotes("");
+    setStatus("");
+    setBefore("");
+    setImage("");
+    setProgress(0);
   };
 
   const handleSelectChange = (option) => {
@@ -101,60 +101,54 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      const file= event.target.files[0];
-    setImage(URL.createObjectURL(file))
-    const storageRef = ref(storage, 'images/' + file.name);
-    const uploadTask = uploadBytesResumable(storageRef, file) 
-    
-    uploadTask.on('state_changed', 
-    (snapshot) => {
-      // Observe state change events such as progress, pause, and resume
-      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log('Upload is ' + progress + '% done');
-      setProgress(progress)
-      switch (snapshot.state) {
-        case 'paused':
-          console.log('Upload is paused');
-          break;
-        case 'running':
-          console.log('Upload is running');
-          break;
-      }
-    }, 
-    (error) => {
-      // Handle unsuccessful uploads
-    }, 
-    () => {
-      // Handle successful uploads on complete
-      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        console.log('File available at', downloadURL);
-        setImage(downloadURL)
+      const file = event.target.files[0];
+      setImage(URL.createObjectURL(file));
+      const storageRef = ref(storage, "images/" + file.name);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-        
-      toast.success('🚀 Image Successfully added the data to the database ', {
-        position: "bottom-center",
-        autoClose: true,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
-        setProgress(0)
-      });
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          setProgress(progress);
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+          }
+        },
+        (error) => {},
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log("File available at", downloadURL);
+            setImage(downloadURL);
 
-       
+            toast.success(
+              "🚀 Image Successfully added the data to the database ",
+              {
+                position: "bottom-center",
+                autoClose: true,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              }
+            );
+            setProgress(0);
+          });
+        }
+      );
     }
-  );
-    }
-   }
+  };
   return (
     <div className="CreateCard flex-center">
-        <Link to='./home'>
-        back
-        </Link>
+      <Link to="./home">back</Link>
       <form onSubmit={handleCreateCard}>
         <input
           value={name}
@@ -242,9 +236,18 @@ await setDoc(doc(collection(db, "animalsPost")), docData);
           required
           hint="Before Oscar's Place"
         />
-        <input type="file" onChange={onImageChange} className="filetype" id="group_image"/>
-        
-        <LinearProgress color="primary" variant="determinate" value={progress} />
+        <input
+          type="file"
+          onChange={onImageChange}
+          className="filetype"
+          id="group_image"
+        />
+
+        <LinearProgress
+          color="primary"
+          variant="determinate"
+          value={progress}
+        />
         <Button required type="submit">
           Submit
         </Button>

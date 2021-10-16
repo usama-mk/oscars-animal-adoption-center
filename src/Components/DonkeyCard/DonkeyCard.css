@@ -1,104 +1,97 @@
-.DonkeyCard{
-    border: 2px solid black;
-    width: 100%;
+.DonkeyCard {
+  border: 2px solid black;
+  width: 100%;
 }
 
 @media screen and (max-width: 1300px) {
-    .DonkeyCard{
-       
-        width: 100%;
-    }
+  .DonkeyCard {
+    width: 100%;
+  }
 
-    .History{
-        width: 100%;
-    }
+  .History {
+    width: 100%;
+  }
 
-    .animalImage{
-        width: 400px;
-    }
+  .animalImage {
+    width: 400px;
+  }
 }
 
 @media screen and (max-width: 1100px) {
-    .DonkeyCard{
-       
-        width: 100%;
-    }
+  .DonkeyCard {
+    width: 100%;
+  }
 
-    .History{
-        width: 100%;
-    }
+  .History {
+    width: 100%;
+  }
 
-    .animalImage{
-        max-width: 300px;
-    }
+  .animalImage {
+    max-width: 300px;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .DonkeyCard{
-       
-        width: 100%;
-    }
+  .DonkeyCard {
+    width: 100%;
+  }
 
-    .History{
-        width: 100%;
-    }
+  .History {
+    width: 100%;
+  }
 
-    .animalImage{
-        max-width: 250px;
-    }
+  .animalImage {
+    max-width: 250px;
+  }
 }
 
-
 @media screen and (max-width: 750px) {
-   th{
+  th {
     font-size: 10px;
-   }
-   tr{
+  }
+  tr {
     font-size: 10px;
+  }
 
-   }
-
-   .DPIWrapper>div{
-       font-size: 15px;
-   }
+  .DPIWrapper > div {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 700px) {
-    .animalImage{
-        max-width: 200px;
-        max-height: 200px;
-    }
- }
+  .animalImage {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
 
- @media screen and (max-width: 555px) {
-    .animalImage{
-        max-width: 100px;
-        max-height: 100px;
-    }
-    .DPIWrapper>div{
-        font-size: 13px;
-    }
+@media screen and (max-width: 555px) {
+  .animalImage {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .DPIWrapper > div {
+    font-size: 13px;
+  }
 
-    .History>div{
-        font-size: 13px;
-    }
+  .History > div {
+    font-size: 13px;
+  }
 
-    th{
-        font-size: 8px;
-       }
-       tr{
-        font-size: 8px;
-       }
- }
+  th {
+    font-size: 8px;
+  }
+  tr {
+    font-size: 8px;
+  }
+}
 
- @media screen and (max-width: 555px) {
-     
-    th{
-        font-size: 6px;
-    }
+@media screen and (max-width: 555px) {
+  th {
+    font-size: 6px;
+  }
 
-     tr{
-        font-size: 6px;
-       }
-       
- }
+  tr {
+    font-size: 6px;
+  }
+}

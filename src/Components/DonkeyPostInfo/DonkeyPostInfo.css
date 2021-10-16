@@ -1,163 +1,153 @@
-.DonkeyPostInfo{
-    border: 1px solid black;
-    width: 60%;
+.DonkeyPostInfo {
+  border: 1px solid black;
+  width: 60%;
 }
 
-.nameWrapper{
-    display: flex;
-    border: 1px solid black;
-    flex-wrap: wrap;
+.nameWrapper {
+  display: flex;
+  border: 1px solid black;
+  flex-wrap: wrap;
 }
 
-.infoName{
-    border: 1px solid black;
-    width: fit-content;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+.infoName {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.name{
-    margin-left: 5px;
+.name {
+  margin-left: 5px;
 }
 
-.specie{
-    margin-left: 5px;
-    padding-right: 10%;
-    display: flex;
-    align-items: center;
+.specie {
+  margin-left: 5px;
+  padding-right: 10%;
+  display: flex;
+  align-items: center;
 }
 
-.separator{
-    display: flex;
-    align-items: center;
+.separator {
+  display: flex;
+  align-items: center;
 }
 
-.customCheck{
-    border: 1px solid black;
-    min-height: 20px;
-    min-width: 20px;
+.customCheck {
+  border: 1px solid black;
+  min-height: 20px;
+  min-width: 20px;
 }
 
-.checkTrue{
-    background-color: grey;
-   
+.checkTrue {
+  background-color: grey;
 }
-.dChecks{
-    display: flex;
-    flex-wrap: wrap;
-
+.dChecks {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.check{
-    display: flex;
-    margin: 10px;
+.check {
+  display: flex;
+  margin: 10px;
 }
 
-.checkLabel{
-    margin: 0px 5px;
+.checkLabel {
+  margin: 0px 5px;
 }
 
-.dColors{
-    display: flex;
-    margin-left: 9%;
-    flex-wrap: wrap;
-
+.dColors {
+  display: flex;
+  margin-left: 9%;
+  flex-wrap: wrap;
 }
 
-.dColorsLabel{
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
+.dColorsLabel {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
 }
 
-.dColorNames{
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
+.dColorNames {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
 }
 
-.dDesc{
-    border: 1px solid black;
-    width: fit-content;
-    padding: 10px;
-    display: flex;
-    padding-bottom: 50px;
+.dDesc {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  padding-bottom: 50px;
 }
 
-.dDescText{
-    padding-top: 10px;
+.dDescText {
+  padding-top: 10px;
 }
 
-.birthInfo{
-    border: 1px solid black;
-    width: fit-content;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    /* padding-bottom: 50px; */
-
+.birthInfo {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  /* padding-bottom: 50px; */
 }
-.birthTable{
-    display: flex;
-    flex-wrap: wrap;
-
+.birthTable {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.month{
-    border: 1px solid black;
-    padding: 5px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+.month {
+  border: 1px solid black;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.monthLabel{
-    padding: 5px 20px;
+.monthLabel {
+  padding: 5px 20px;
 }
 
-.notes{
-    /* padding: 5px; */
+.notes {
+  /* padding: 5px; */
 }
-.intakeNotes{
-    
-    background-color: #f2f2f2;
-    padding-bottom: 10px;
-}
-
-.notesText{
-    padding-left: 5px;
-    min-height: 90px;
-    padding-top: 5px;
+.intakeNotes {
+  background-color: #f2f2f2;
+  padding-bottom: 10px;
 }
 
-.DPIWrapper{
-    display: flex;
-    width: 100%;
+.notesText {
+  padding-left: 5px;
+  min-height: 90px;
+  padding-top: 5px;
 }
 
-.imageWrapper{
-      
+.DPIWrapper {
+  display: flex;
+  width: 100%;
 }
 
-
-.animalImage{
-    width: 350px;
-    height: 450px;
-    object-fit: cover;
-    margin-left: 10%;  
-    margin-top: 5px;
+.imageWrapper {
 }
 
-.border{
-
+.animalImage {
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  margin-left: 10%;
+  margin-top: 5px;
 }
 
-.borderBackground{
-    border: 1px solid black;
-    min-height: 20px;
-    min-width: 20px;
-    width: 110%;
-    background-color: #767170;
+.border {
+}
+
+.borderBackground {
+  border: 1px solid black;
+  min-height: 20px;
+  min-width: 20px;
+  width: 110%;
+  background-color: #767170;
 }

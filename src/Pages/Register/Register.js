@@ -5,20 +5,23 @@ import register from "../../assets/images/register.svg";
 import { db, firebaseApp } from "../../firebase";
 import { auth } from "../../firebase";
 import { Redirect, useHistory } from "react-router";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "@firebase/auth";
 import { useDispatch } from "react-redux";
-import { setUser } from '../../actions'
+import { setUser } from "../../actions";
 import { useSelector } from "react-redux";
 import { collection, doc, setDoc } from "@firebase/firestore";
 
-
-function Register({  }) {
-  const user= useSelector(state=> state.user.user)
+function Register({}) {
+  const user = useSelector((state) => state.user.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
   const history = useHistory();
   const toggleSignIn = () => {
     const container = document.querySelector(".container");
@@ -30,25 +33,27 @@ function Register({  }) {
     container.classList.remove("sign-up-mode");
   };
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      dispatch(setUser('null'))
-    }).catch((error) => {
-      // An error happened.
-    });
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        dispatch(setUser("null"));
+      })
+      .catch((error) => {
+        // An error happened.
+      });
   };
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(email);
     console.log(password);
-    
-      signInWithEmailAndPassword(auth, email, password)
+
+    signInWithEmailAndPassword(auth, email, password)
       .then((user) => {
         console.log(user);
         // await getUserDocument(user.uid);
         if (user) {
           console.log("success login");
-        dispatch(setUser(user));
+          dispatch(setUser(user));
 
           history.push("/home");
         }
@@ -73,16 +78,16 @@ function Register({  }) {
   const handleSignup = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-      .then(async(user) => {
+      .then(async (user) => {
         console.log(user);
         console.log("success signup");
         // console.log(user.user?.email);
-        dispatch(setUser(user))
-        await setDoc(doc(db, "users", user.user?.uid),{
+        dispatch(setUser(user));
+        await setDoc(doc(db, "users", user.user?.uid), {
           userEmail: user.user?.email,
           id: user.user?.uid,
-          admin:'',
-          editor: ''
+          admin: "",
+          editor: "",
         });
         history.push("./home");
       })
@@ -95,9 +100,9 @@ function Register({  }) {
       });
   };
 
-  useEffect(()=>{
-    console.log(user.user?.email)
-  },[])
+  useEffect(() => {
+    console.log(user.user?.email);
+  }, []);
 
   return user ? (
     <Redirect to="/home" />

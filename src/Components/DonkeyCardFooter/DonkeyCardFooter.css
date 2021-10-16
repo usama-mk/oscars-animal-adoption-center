@@ -1,43 +1,37 @@
-
-.DonkeyCardFooter{
-    display: flex;
+.DonkeyCardFooter {
+  display: flex;
 }
-.footerDetails{
-    display: flex;
-    border: 1px solid black;
-    width: 60%;
-    /* padding: 10px; */
-    padding-left: 0;
-    display: flex;
-    align-items: center;
+.footerDetails {
+  display: flex;
+  border: 1px solid black;
+  width: 60%;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
 }
 
-.bop{
-    padding-left: 3%;
+.bop {
+  padding-left: 3%;
 }
 
-.BeforeOscarPlace{
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #f2f2f2;
-    height: 100%;
-    display: flex;
-    align-items: center;
+.BeforeOscarPlace {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #f2f2f2;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.footerStatus{
-    /* margin-left: 20%; */
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-
+.footerStatus {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
 
-.footerStatusText{
-    /* border: 1px solid black; */
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    
+.footerStatusText {
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }

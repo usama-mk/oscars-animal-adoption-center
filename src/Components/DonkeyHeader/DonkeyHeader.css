@@ -1,9 +1,9 @@
-.DonkeyHeader{
-    background-color: #767170;
-    display: flex;
-    justify-content: flex-end;
+.DonkeyHeader {
+  background-color: #767170;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.dHeaderDate{
-    margin-right: 10%;
+.dHeaderDate {
+  margin-right: 10%;
 }
