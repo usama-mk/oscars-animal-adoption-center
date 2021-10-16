@@ -112,13 +112,14 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
       {/* Bonded Companion */}
 
       <div className="Bonded borderAround flex">
-       <div >
+       <div style={{display: 'flex'}}>
        <div className="BondedC borderAround wFit plr10  ">
           Bonded Companion:
         </div>
         <div className="bondedText mr40P pl5">
           {admin || editor ? (
             <input
+            placeholder="bonded companion.."
               style={{ border: "none" }}
               type="text"
               value={bonded}
@@ -130,12 +131,13 @@ const unsubscribe2 = onSnapshot(q2, (querySnapshot) => {
         </div>
          </div>
 
-        <div>
+        <div style={{display: 'flex'}} >
         <div className="Pasture borderAround wFit plr10  ">Pasture:</div>
         <div className="pastureText pl5">
           {admin || editor ? (
             <input
               style={{ border: "none" }}
+              placeholder="Pasture.."
               type="text"
               value={pasture}
               onChange={(e) => changePasture(e)}

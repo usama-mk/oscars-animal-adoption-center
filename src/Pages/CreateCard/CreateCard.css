@@ -1,5 +1,5 @@
 .CreateCard{
-    
+    width: 100%;
 }
 
 .flex-center{
@@ -10,4 +10,5 @@
 .CreateCard>form{
     width: 70%;
     margin-top: 50px;
+
 }
