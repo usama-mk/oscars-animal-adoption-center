@@ -58,7 +58,8 @@ const docData = {
   image: image,
     datex: currentDate.getDate(),
     monthx: currentDate.getMonth(),
-    yearx: currentDate.getFullYear()
+    yearx: currentDate.getFullYear(),
+    time: currentDate
 
    
 };

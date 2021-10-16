@@ -27,6 +27,12 @@ function Table({ id }) {
       const newValue = e.target.value;
       //coll doc coll doc
       await setDoc(commentsRef, { comment: newComment });
+
+      setNewComment({
+        date: "",
+    examDetails: "",
+    nextSteps: "",
+      });
   };
 
   useEffect( async()=>{
